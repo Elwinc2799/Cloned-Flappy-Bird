@@ -4,6 +4,7 @@ import pygame
 import random
 
 pygame.init()
+pygame.font.init()
 
 # set game display size
 WIDTH = 500
@@ -35,6 +36,17 @@ obstacles_gap = 150
 score_sound = pygame.mixer.Sound("score.mp3")
 game_over_sound = pygame.mixer.Sound("gameover.mp3")
 
+# define text colour profile
+white = (255, 255, 255)
+black = (0, 0, 0)
+
+def display_score(score):
+    font = pygame.font.Font('Flappy-Bird.ttf', 40)
+    score_text = "Total: " + str(score)
+    text = font.render(score_text, False, black)
+    screen.blit(text, (190, 200))
+
+
 def display_bird(x,y):
     # create bird image
     screen.blit(bird, (x,y))
@@ -65,6 +77,7 @@ while run:
 
     # display the background image
     screen.blit(background, (0, 0))
+    display_score(score)
 
     # detect for keyboard event
     for event in pygame.event.get():
@@ -101,7 +114,6 @@ while run:
     if collision:
         pygame.mixer.Sound.play(game_over_sound)
         sleep(1)
-        print("Total: ", score)
         pygame.quit()
         break
     elif obstacles_X <= bird_X and get_score:
