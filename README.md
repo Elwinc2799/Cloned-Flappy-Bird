@@ -1,5 +1,7 @@
 # Cloned-Flappy-Bird
 
+<img src="/assets/img1.png" width="300">     <img src="/assets/img2.png" width="300">
+
 Flappy bird is a mobile game developed by Vietnamese video game artist and programmer, Dong Nguyenm, under his game development company, Gears. The cloned flappy bird game starts with a bird floating in the air, and the user can control the bird by clicking spacebar to elevate and releasing the space bar to descent. The target of the game is to score as high as possible without colliding with the upcoming green bar.
 
 - built using Python with [Pygame](https://www.pygame.org/news).
