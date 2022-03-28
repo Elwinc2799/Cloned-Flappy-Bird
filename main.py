@@ -1,4 +1,3 @@
-import sys
 from time import sleep
 import pygame
 import random
@@ -46,7 +45,6 @@ def display_score(score):
     text = font.render(score_text, False, black)
     screen.blit(text, (190, 200))
 
-
 def display_bird(x,y):
     # create bird image
     screen.blit(bird, (x,y))
@@ -61,7 +59,7 @@ def display_obstacles(height):
 
 def detect_collision(x, height, bird_y, bottom_obstacle_height):
     # check whether the bird collides with the obstacle
-    # bird starts at x-coord = 50 with a width of 64
+    # bird starts at x-coord = 50 with a width of 85
     if x <= (50 + 85):
         # bird current height fall within the gap
         if bird_y <= height or bird_y >= (bottom_obstacle_height - 64):
@@ -88,9 +86,6 @@ while run:
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_SPACE:
                 bird_Y_change = 3
-        
-        if event.type == pygame.QUIT:
-            run = False
     
     bird_Y += bird_Y_change
 
@@ -99,7 +94,7 @@ while run:
     if bird_Y >= 484:
         bird_Y = 484
 
-    # calculate new obstacle height
+    # calculate new obstacle x-value
     obstacles_X += obstacles_X_change
     
     if obstacles_X <= -10:
@@ -116,7 +111,7 @@ while run:
         sleep(1)
         pygame.quit()
         break
-    elif obstacles_X <= bird_X and get_score:
+    if obstacles_X <= bird_X and get_score:
         score += 1
         pygame.mixer.Sound.play(score_sound)
         get_score = False
