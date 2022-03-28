@@ -11,13 +11,13 @@ HEIGHT = 650
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 # set background image
-background = pygame.image.load('background.jpg')
+background = pygame.image.load('assets/background.jpg')
 
 # set game title
 pygame.display.set_caption("Flappy Bird")
 
 # load bird image and set initial position
-bird = pygame.image.load('bird1.png')
+bird = pygame.image.load('assets/bird1.png')
 bird_X = 50
 bird_Y = 400
 bird_Y_change = 0
@@ -32,15 +32,15 @@ obstacles_X = 500
 obstacles_gap = 150
 
 # load sound files
-score_sound = pygame.mixer.Sound("score.mp3")
-game_over_sound = pygame.mixer.Sound("gameover.mp3")
+score_sound = pygame.mixer.Sound("assets/score.mp3")
+game_over_sound = pygame.mixer.Sound("assets/gameover.mp3")
 
 # define text colour profile
 white = (255, 255, 255)
 black = (0, 0, 0)
 
 def display_score(score):
-    font = pygame.font.Font('Flappy-Bird.ttf', 40)
+    font = pygame.font.Font('assets/Flappy-Bird.ttf', 40)
     score_text = "Total: " + str(score)
     text = font.render(score_text, False, black)
     screen.blit(text, (190, 200))
